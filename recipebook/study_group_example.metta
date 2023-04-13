@@ -12,18 +12,6 @@
 (Love Strawberry)
 
 !(match &self (Love $fruit) (match &self (In-store $fruit)
-    (Buy $fruit)
-))
-!(match &self (Love $fruit) (match &self (In-store $fruit)
-    (match &self (Recipe $recipe (With-ingredient $fruit))
-    (match &self (Recipe $recipe (With-ingredient $ingredient))
-        (Buy $ingredient))
-    )
-))
-
-; join doesn't work yet
-/*
-!(match &self (Love $fruit) (match &self (In-store $fruit)
     (join
         (Buy $fruit)
         (match &self (Recipe $recipe (With-ingredient $fruit))
@@ -33,4 +21,3 @@
         )
     )
 ))
-*/

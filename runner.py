@@ -55,7 +55,7 @@ class ExtendedMeTTa(MeTTa):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.register_atom("join", OperationAtom('join', lambda a, b: interpret(self.space(), a) + interpret(self.space(), b),
-                                                 type_names=[AtomType.ATOM, AtomType.ATOM], unwrap=True))
+                                                 type_names=[AtomType.ATOM, AtomType.ATOM, AtomType.ATOM], unwrap=False))
 
 
 class LazyMeTTa(ExtendedMeTTa):
