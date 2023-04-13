@@ -11,11 +11,11 @@
 (Love Orange)
 (Love Strawberry)
 
-!(match &self (Love $fruit) (match &self (In-store $fruit)
+!(transform (Love $fruit) (transform (In-store $fruit)
     (join
         (Buy $fruit)
-        (match &self (Recipe $recipe (With-ingredient $fruit))
-            (match &self (Recipe $recipe (With-ingredient $ingredient))
+        (transform (Recipe $recipe (With-ingredient $fruit))
+            (transform (Recipe $recipe (With-ingredient $ingredient))
                 (Buy $ingredient)
             )
         )

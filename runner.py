@@ -54,7 +54,9 @@ def color_expr(expr, level=0, unif_vars=None):
 class ExtendedMeTTa(MeTTa):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.register_atom("join", OperationAtom('join', lambda a, b: interpret(self.space(), a) + interpret(self.space(), b),
+        self.register_atom("transform", OperationAtom("transform", lambda pattern, template: self.space().subst(pattern, template),
+                                                      type_names=[AtomType.ATOM, AtomType.ATOM, AtomType.UNDEFINED], unwrap=False))
+        self.register_atom("join", OperationAtom("join", lambda a, b: interpret(self.space(), a) + interpret(self.space(), b),
                                                  type_names=[AtomType.ATOM, AtomType.ATOM, AtomType.ATOM], unwrap=False))
 
 
